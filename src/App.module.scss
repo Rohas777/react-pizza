@@ -1,0 +1,47 @@
+@import './scss/mixins';
+@import './scss/nullstyle';
+
+@font-face {
+  font-weight: 400; /* Соответствует значению normal */
+  font-family: ProximaNova;
+  src: url("./../public/fonts/proximanova_regular.woff");
+}
+
+@font-face {
+  font-weight: 700; /* Соответствует значению bold */
+  font-family: ProximaNova;
+  src: url("./../public/fonts/proximanova_bold.woff");
+}
+
+@font-face {
+  font-weight: 800; /* Соответствует значению extrabold */
+  font-family: ProximaNova;
+  src: url("./../public/fonts/proximanova_extrabold.woff");
+}
+
+.App{
+  background-color: #FFDF8C;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 43px;
+  padding-bottom: 63px;
+  @include flexbox();
+  flex-direction: column;
+  align-items: center;
+  font-family: ProximaNova;
+}
+
+.wrapper {
+  flex: 1;
+  width: 1340px;
+  background: #FFFFFF;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  @include flexbox();
+  flex-direction: column;
+  align-items: center;
+}
+
+.container{
+  width: 1225px;
+}
