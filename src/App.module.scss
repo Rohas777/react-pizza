@@ -1,34 +1,16 @@
 @import './scss/mixins';
 @import './scss/nullstyle';
 
-@font-face {
-  font-weight: 400; /* Соответствует значению normal */
-  font-family: ProximaNova;
-  src: url("./../public/fonts/proximanova_regular.woff");
-}
-
-@font-face {
-  font-weight: 700; /* Соответствует значению bold */
-  font-family: ProximaNova;
-  src: url("./../public/fonts/proximanova_bold.woff");
-}
-
-@font-face {
-  font-weight: 800; /* Соответствует значению extrabold */
-  font-family: ProximaNova;
-  src: url("./../public/fonts/proximanova_extrabold.woff");
-}
-
 .App{
   background-color: #FFDF8C;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding-top: 43px;
   padding-bottom: 63px;
   @include flexbox();
   flex-direction: column;
   align-items: center;
-  font-family: ProximaNova;
+  font-family: Nunito, sans-serif;
 }
 
 .wrapper {
@@ -40,8 +22,26 @@
   @include flexbox();
   flex-direction: column;
   align-items: center;
+  padding-bottom: 96px;
 }
 
 .container{
   width: 1225px;
+}
+
+.catalog{
+  h1{
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      letter-spacing: 0.01em;
+      color: #000000;
+      margin-bottom: 35px;
+  }
+  .cards{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 65px;
+    column-gap: 35px;
+  }
 }
