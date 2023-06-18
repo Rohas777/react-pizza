@@ -1,30 +1,26 @@
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+
+// import pizzas from "./assets/pizzas.json"
 import styles from "./App.module.scss"
+
 import Header from './components/Header';
-import SortBlok from "./components/SortBlock";
-import Card from "./components/Card";
-import pizzas from "./assets/pizzas.json"
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
+import NotFound from './pages/NotFound';
 
 function App() {
-
   return (
     <div className={styles.App}>
       <div className={styles.wrapper}>
-        <Header />
         <div className={styles.container}>
-          <SortBlok />
-          <div className={styles.catalog}>
-            <h1>Все пиццы</h1>
-            <div className={styles.cards}>
-              {
-                pizzas.map(item => (
-                  <Card
-                    key={item.id}
-                    {...item}
-                  />
-                ))
-              }
-            </div>
-          </div>
+          <Header />
+
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/not-found' element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </div>

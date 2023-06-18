@@ -19,38 +19,48 @@ export default function SortBlok() {
 
     const sortCriterion = ['популярности', 'цене', 'алфавиту']
 
+    function onSelectCriterion(index) {
+        setActiveCriterion(index)
+        setIsMenuOpen(false)
+    }
 
     return (
         <div className={styles.menu}>
-            <ul className={styles.kinds}>
-                {
-                    kinds.map((item, index) => (
-                        <li
-                            key={index}
-                            onClick={() => setActiveIndex(index)}
-                            className={activeIndex === index ? styles.active : ''}
-                        >{item}</li>
-                    ))
-                }
-            </ul>
-            <div className={styles.sort}>
-                <div className={styles.head} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    <img src="/img/arrow.svg" alt="Open Sort Menu"
-                        style={isMenuOpen ? { transform: "rotate(0deg)" } : null} />
-                    <p>Сортировка по: <span>{sortCriterion[activeCriterion]}</span></p>
-                </div>
-                <ul className={styles.options}
-                    style={isMenuOpen ? { top: "100%", opacity: 1 } : null} >
+            <div className={styles.kinds}>
+                <ul>
                     {
-                        sortCriterion.map((item, index) => (
+                        kinds.map((item, index) => (
                             <li
                                 key={index}
-                                onClick={() => setActiveCriterion(index)}
-                                className={activeCriterion === index ? styles.active : ''}
+                                onClick={() => setActiveIndex(index)}
+                                className={activeIndex === index ? styles.active : ''}
                             >{item}</li>
                         ))
                     }
                 </ul>
+            </div>
+            <div className={styles.wrapper}>
+                <div className={styles.sort}>
+                    <div className={styles.head} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <img src="/img/arrow.svg" alt="Open Sort Menu"
+                            style={isMenuOpen ? { transform: "rotate(0deg)" } : null} />
+                        <p>Сортировка по: <span>{sortCriterion[activeCriterion]}</span></p>
+                    </div>
+                    {isMenuOpen &&
+                        <ul className={styles.options}
+                            style={{ opacity: 1 }} //top: "100%",
+                        >
+                            {
+                                sortCriterion.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        onClick={() => onSelectCriterion(index)}
+                                        className={activeCriterion === index ? styles.active : ''}
+                                    >{item}</li>
+                                ))
+                            }
+                        </ul>}
+                </div>
             </div>
         </div >
     )

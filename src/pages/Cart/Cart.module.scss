@@ -1,0 +1,230 @@
+@import './../../scss/mixins';
+@import './../../scss/nullstyle';
+
+.cart{
+
+    .empty{
+        padding: 163px 0;
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h1{
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 39px;
+            letter-spacing: 0.01em;
+            color: #000000;
+            margin-bottom: 10px;
+            span{
+
+            }
+        }
+        p{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 145.4%;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: #777777;
+            margin-bottom: 47px;
+        }
+        img{
+            width: 300px;
+            height: 255px;
+            margin-bottom: 74px;
+        }
+        .back{
+            padding: 15px 0;
+            width: 210px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            letter-spacing: 0.015em;
+            color: #FFFFFF;
+            background: #282828;
+            border-radius: 30px;
+            @include anim(0.2s,0s);
+            &:hover, &:focus{
+                opacity: 0.7;
+            }
+            &:active{
+                transform: scale(90%);
+            }
+        }
+    }
+
+    .filled{
+        width: 820px;
+        padding: 94px 0px 130px;
+        @include flexbox();
+        flex-direction: column;
+        margin: 0 auto;
+        .head{
+            padding-bottom: 30px;
+            @include flexbox();
+            justify-content: space-between;
+            align-items: center;
+            .title{
+                @include flexbox();
+                align-items: center;
+                svg{
+                    width: 29px;
+                    height: 29px;
+                    margin-right: 17px;
+                }
+                h1{
+                    font-weight: 700;
+                    font-size: 32px;
+                    line-height: 39px;
+                    letter-spacing: 0.01em;
+                    color: #000000;
+                }
+            }
+            .clear{
+                cursor: pointer;
+                @include flexbox();
+                align-items: center;
+                @include anim(0.2s,0s);
+                &:hover, &:focus{
+                    p{
+                        color: #7e7e7e;
+                    }
+                    svg{
+                        path{
+                            stroke: #7e7e7e;
+                        }
+                    }
+                }
+                &:active{
+                    transform: scale(90%);
+                }
+                // #7e7e7e
+                svg{
+                    height: 20px;
+                    width: 20px;
+                    margin-right: 7px;
+                    path{
+                       @include anim(0.2s,0s);
+                    }
+                }
+                p{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
+                    @include anim(0.2s,0s);
+                    color: #B6B6B6;
+                }
+            }
+        }
+        .drower{
+            padding: 30px 0px;
+            margin-bottom: 10px;
+        }
+        .total{
+            @include flexbox();
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            p{
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 27px;
+                letter-spacing: 0.01em;
+                color: #000000;
+            }
+            b{
+                font-weight: 700;
+            }
+            span{
+                font-weight: 700;
+                color: #FE5F1E;
+            }
+        }
+        .buttons{
+            @include flexbox();
+            justify-content: space-between;
+            align-items: center;
+            div{
+                width: 211px;
+                padding-top: 18px;
+                padding-bottom: 16px;
+                border-radius: 30px;
+                cursor: pointer;
+            }
+
+            @keyframes arrowMove {
+                0%{
+                    left: 22px;
+                }
+                25%{
+                    left: 17px;
+                }
+                75%{
+                    left: 27px;
+                }
+                100%{
+                    left: 22px;
+                }
+            }
+
+            .back{
+                border: 1px solid #D3D3D3;
+                position: relative;
+                @include anim(0.2s,0s);
+                &:hover, &:focus{
+                    border: 1px solid #7e7e7e;
+                    background-color: #ebebeb9d;
+                    p{
+                        color: #7e7e7e;
+                    }
+                    svg{
+                        animation: arrowMove 0.2s;
+                        path{
+                            stroke: #7e7e7e;
+                        }
+                    }
+                }
+                &:active{
+                    transform: scale(90%);
+                    svg{
+                        left: 17px;
+                    }
+                }
+                svg{
+                    position: absolute;
+                    width: 6px;
+                    height: 12px;
+                    top: 50%;
+                    left: 22px;
+                    transform: translateY(-50%);
+                    path{
+                        @include anim(0.2s,0s);
+                    }
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 19px;
+                    text-align: center;
+                    font-weight: 400;
+                    color: #CACACA;
+                    @include anim(0.2s,0s);
+                }
+            }
+            .solve{
+                font-size: 16px;
+                line-height: 19px;
+                text-align: center;
+                background: #FE5F1E;
+                font-weight: 700;
+                @include anim(0.2s,0s);
+                color: #FFFFFF;
+                &:active{
+                    transform: scale(90%);
+                }
+            }
+        }
+    }
+}

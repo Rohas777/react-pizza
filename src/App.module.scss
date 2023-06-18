@@ -2,46 +2,25 @@
 @import './scss/nullstyle';
 
 .App{
+  min-height: 100%;
   background-color: #FFDF8C;
-  width: 100%;
-  height: 100%;
-  padding-top: 43px;
-  padding-bottom: 63px;
-  @include flexbox();
-  flex-direction: column;
-  align-items: center;
   font-family: Nunito, sans-serif;
+  padding: 43px 20px;
 }
 
 .wrapper {
+  margin: 0px auto;
+  margin-bottom: 63px;
+  min-height: 88vh;
+  max-width: 1340px;
   flex: 1;
-  width: 1340px;
   background: #FFFFFF;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
   border-radius: 10px;
-  @include flexbox();
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 96px;
 }
 
 .container{
-  width: 1225px;
-}
-
-.catalog{
-  h1{
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 39px;
-      letter-spacing: 0.01em;
-      color: #000000;
-      margin-bottom: 35px;
-  }
-  .cards{
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 65px;
-    column-gap: 35px;
-  }
+  // width: 1225px;
+  width: 100%;
+  padding: 0px 57.5px;
 }
