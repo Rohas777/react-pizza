@@ -1,66 +1,54 @@
 import styles from "./SortBlock.module.scss"
-import React from "react"
+import React, { useRef } from "react"
+import { useOutsideClick } from '../../assets/CustomHooks'
 
-export default function SortBlok() {
+export default function SortBlok({ value, onClickSort, onOpenModal, isModalOpened, onClose }) {
+    const sortRef = useRef(null)
+    useOutsideClick(sortRef, onClose, isModalOpened)
 
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-    const [activeIndex, setActiveIndex] = React.useState(0)
-    const [activeCriterion, setActiveCriterion] = React.useState(0)
-
-
-    const kinds = [
-        'Все',
-        'Мясные',
-        'Вегетарианская',
-        'Гриль',
-        'Острые',
-        'Закрытые'
+    const sort = [
+        { id: 0, name: 'популярности', property: 'rating', type: 'desc' },
+        { id: 1, name: 'популярности', property: 'rating', type: 'asc' },
+        { id: 2, name: 'цене', property: 'price', type: 'desc' },
+        { id: 3, name: 'цене', property: 'price', type: 'asc' },
+        { id: 4, name: 'алфавиту', property: 'title', type: 'desc' },
+        { id: 5, name: 'алфавиту', property: 'title', type: 'asc' }
     ]
 
-    const sortCriterion = ['популярности', 'цене', 'алфавиту']
-
     function onSelectCriterion(index) {
-        setActiveCriterion(index)
-        setIsMenuOpen(false)
+        onClickSort(index)
+        onClose()
     }
 
     return (
-        <div className={styles.menu}>
-            <div className={styles.kinds}>
-                <ul>
-                    {
-                        kinds.map((item, index) => (
-                            <li
-                                key={index}
-                                onClick={() => setActiveIndex(index)}
-                                className={activeIndex === index ? styles.active : ''}
-                            >{item}</li>
-                        ))
-                    }
-                </ul>
-            </div>
-            <div className={styles.wrapper}>
-                <div className={styles.sort}>
-                    <div className={styles.head} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <img src="/img/arrow.svg" alt="Open Sort Menu"
-                            style={isMenuOpen ? { transform: "rotate(0deg)" } : null} />
-                        <p>Сортировка по: <span>{sortCriterion[activeCriterion]}</span></p>
-                    </div>
-                    {isMenuOpen &&
-                        <ul className={styles.options}
-                            style={{ opacity: 1 }} //top: "100%",
-                        >
-                            {
-                                sortCriterion.map((item, index) => (
-                                    <li
-                                        key={index}
-                                        onClick={() => onSelectCriterion(index)}
-                                        className={activeCriterion === index ? styles.active : ''}
-                                    >{item}</li>
-                                ))
-                            }
-                        </ul>}
+        <div
+            className={styles.wrapper}
+            ref={sortRef}
+        >
+            <div className={styles.sort}>
+                <div className={styles.head} onClick={onOpenModal}>
+                    <img src="/img/arrow.svg" alt="Open Sort Menu"
+                        style={isModalOpened ? { transform: "rotate(0deg)" } : null} />
+                    <p>Сортировка по: <span>{value.name}</span></p>
                 </div>
+                {isModalOpened &&
+                    <ul
+                        className={styles.options}
+                        style={{ opacity: 1 }} //top: "100%",
+                    >
+                        {
+                            sort.map((obj) => (
+                                <li
+                                    key={obj.id}
+                                    onClick={() => onSelectCriterion(obj)}
+                                    className={value.id === obj.id ? styles.active : ''}
+                                >{obj.name} <img
+                                        src="/img/arrow.svg" alt="arrow"
+                                        style={obj.type === 'asc' ? { transform: "rotate(0deg)" } : null}
+                                    /> </li>
+                            ))
+                        }
+                    </ul>}
             </div>
         </div >
     )

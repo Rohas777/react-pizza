@@ -1,0 +1,45 @@
+@import './../../scss/mixins';
+@import './../../scss/nullstyle';
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 35px;
+    a{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        border: 3px solid #FE5F1E;
+        color: #FE5F1E;
+        border-radius: 50%;
+        transition: all .1s ease-in;
+        &:hover{
+            background: rgba(254, 95, 30, 0.1);
+        }
+        &:active{
+            transform: scale(90%);
+            background: #FE5F1E;
+            color: #fff;
+        }
+        &.selected{
+            transform: scale(90%);
+            background: #FE5F1E;
+            color: #fff;
+        }
+    }
+    :global{
+        .selected{
+            a{
+                transform: scale(90%);
+                background: #FE5F1E;
+                color: #fff;
+            }
+        }
+    }
+}
