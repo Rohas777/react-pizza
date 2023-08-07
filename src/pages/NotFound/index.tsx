@@ -1,14 +1,14 @@
+import { FC } from "react"
 import styles from "./NotFound.module.scss"
-import React from "react"
 
-export default function NotFound() {
-
+const NotFound: FC = () => {
     return (
         <div className={styles.notFound}>
             <span>😕</span>
-            <h1>Ничего не найдено</h1>
+            <h2>Ничего не найдено</h2>
             <p>К сожалению данная страница не действует в нашем интернет-магазине</p>
         </div>
     )
 }
 
+export default NotFound

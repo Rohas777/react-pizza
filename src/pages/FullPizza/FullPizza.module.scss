@@ -1,0 +1,50 @@
+@import './../../scss/mixins';
+@import './../../scss/nullstyle';
+
+.loading{
+    font-family: Nunito, sans-serif;
+    padding-top: 50px;
+    line-height: 1.2;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.fullPizza{
+    display: flex;
+    gap: 30px;
+    padding-top: 50px;
+
+    img{
+        width: 300px;
+    }
+
+    .description{
+        font-family: Nunito, sans-serif;
+        line-height: 1.2;
+        padding: 0px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h2{
+            font-weight: 700;
+            font-size: 32px;
+        }
+        // p{
+        //     font-weight: 400;
+        //     font-size: 16px;
+        //     width: 80%;
+        // }
+        span{
+            padding: 7px 15px;
+            border-radius: 15px;
+            color: #fff;
+            align-self: end;
+            font-weight: 700;
+            font-size: 20px;
+            background-color: #FE5F1E;
+        }
+    }
+}

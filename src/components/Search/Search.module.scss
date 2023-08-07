@@ -1,32 +1,9 @@
 @import './../../scss/mixins';
 @import './../../scss/nullstyle';
 
-@keyframes searchOpen {
-    0%{
-        width: 200px;
-
-    }
-    75%{
-        width: 330px;
-
-    }
-    85%{
-        width: 300px;
-
-    }
-    95%{
-        width: 310px;
-
-    }
-    100%{
-        width: 300px;
-
-    }
-}
 
 .search{
     position: relative;
-    animation: searchOpen 0.3s ease-in reverse;
     display: flex;
     gap: 10px;
     border: 1px solid #747474;
@@ -73,9 +50,12 @@
         }
     }
     
-
+    &:focus{
+        width: 300px;
+        opacity: 1;
+    }
+    
     &.active{
-        animation: searchOpen 0.3s ease-out;
         width: 300px;
         opacity: 1;
     }

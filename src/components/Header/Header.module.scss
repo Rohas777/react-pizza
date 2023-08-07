@@ -5,6 +5,7 @@ header {
     min-height: 140px;    
     width: 100%;
     border-bottom: 1px solid #F3F3F3;
+    padding: 0px 57.5px;
     @include flexbox();
     justify-content: center;
     @media (max-width: 540px) {

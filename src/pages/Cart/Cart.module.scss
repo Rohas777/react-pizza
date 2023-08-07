@@ -3,59 +3,6 @@
 
 .cart{
 
-    .empty{
-        padding: 163px 0;
-        @include flexbox();
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        h1{
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 39px;
-            letter-spacing: 0.01em;
-            color: #000000;
-            margin-bottom: 10px;
-            span{
-
-            }
-        }
-        p{
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 145.4%;
-            text-align: center;
-            letter-spacing: 0.01em;
-            color: #777777;
-            margin-bottom: 47px;
-        }
-        img{
-            width: 300px;
-            height: 255px;
-            margin-bottom: 74px;
-        }
-        .back{
-            padding: 15px 0;
-            width: 210px;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 19px;
-            text-align: center;
-            letter-spacing: 0.015em;
-            color: #FFFFFF;
-            background: #282828;
-            border-radius: 30px;
-            @include anim(0.2s,0s);
-            &:hover, &:focus{
-                opacity: 0.7;
-            }
-            &:active{
-                transform: scale(90%);
-            }
-        }
-    }
-
     .filled{
         width: 820px;
         padding: 94px 0px 130px;

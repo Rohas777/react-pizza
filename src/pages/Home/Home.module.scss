@@ -35,6 +35,35 @@
 
     }
 
+    .error{
+      padding: 163px 0;
+      @include flexbox();
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      h2{
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 39px;
+          letter-spacing: 0.01em;
+          color: #000000;
+          margin-bottom: 10px;
+          span{
+
+          }
+      }
+      p{
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 145.4%;
+          text-align: center;
+          letter-spacing: 0.01em;
+          color: #777777;
+          margin-bottom: 47px;
+      }
+    }
+
     .cards{
       display: grid;
       grid-template-columns: repeat(4, 1fr);

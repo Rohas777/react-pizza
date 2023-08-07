@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 
-function useOutsideClick(elementRef, handler, attached = true) {
+function useOutsideClick(elementRef:RefObject<HTMLDivElement>, handler: () => void, attached: Boolean = true) { 
     React.useEffect(() => {
         if (!attached) return
 
-        const handleClick = (e) => {
+        const handleClick = (event: MouseEvent) => {
             if (!elementRef.current) return
-            if (!elementRef.current.contains(e.target)) {
+            if (!elementRef.current.contains(event.target as HTMLElement)) {
                 handler()
             }
         }

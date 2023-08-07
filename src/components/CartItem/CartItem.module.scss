@@ -105,4 +105,20 @@
             }
         }
     }
+    .disable{
+        border: 2px solid #D7D7D7;
+        svg{
+            path{
+                fill: #D7D7D7;
+            }
+        }
+        &:hover, &:focus{
+            background-color: transparent;
+            svg{
+                path{
+                    fill: #D7D7D7;
+                }
+            }
+        }
+    }
 }
